@@ -1,0 +1,157 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 2rem;
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;         /* <-- vertically center content */
+  background-color: #333;
+  color: #ccc;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+section {
+  background-color: #443535;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+input.invalid {
+  border-color: red;
+  background-color: #ffe6e6;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.upload-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 2px dashed #666;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #2a2a2a;
+  color: #ccc;
+  transition: background-color 0.2s ease;
+}
+
+.upload-container.dragover {
+  background-color: #3a3a3a;
+  border-color: #999;
+}
+
+.upload-container button {
+  margin-top: 1rem;
+}
+
+#btnUploadContent {
+  display: block;
+  margin: 2rem auto 0 auto; /* top margin + centered */
+  background-color: #007acc;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#btnUploadContent:hover:enabled {
+  background-color: #0099ff;
+  transform: scale(1.03);
+}
+
+#btnUploadContent:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#uploadStatus {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+#uploadStatus.hidden {
+  display: none;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+}
+
+#uploadStatus {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+#uploadStatus.uploading {
+  color: #ccc;
+}
+
+#uploadStatus.success {
+  color: #4caf50;
+}
+
+#uploadStatus.error {
+  color: #f44336;
+}
+
+#uploadStatus a {
+  color: #8fc1e3;             
+  text-decoration: underline;
+}
+
+#uploadStatus a:hover {
+  color: #fff;
+}
+
+.upload-container.dragover {
+  background-color: #3a3a3a;
+  border-color: #aaa;
+}
