@@ -1,4 +1,3 @@
-// test token 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
 // Always clear stored token on page load
 window.addEventListener('load', () => {
   sessionStorage.clear();
