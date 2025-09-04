@@ -1,46 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pastr</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>pastr</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<body>
-    <header>
-        <h1>pastr</h1>
-    </header>
+    <body>
+        <header>
+            <h1>pastr</h1>
+        </header>
 
-    <!-- AUTHENTICATION -->
-    <section id='authArea'>
-        <h2>Provide GitHub Token</h2>
-        <p>Token is only stored locally for this session.</p>
-        <input type="password" id="tokenInput" placeholder="GitHub PAT ..." autofocus>
-    </section>
+        <!-- AUTHENTICATION -->
+        <section id="authArea">
+            <h2>Provide GitHub Token</h2>
+            <p>Token is only stored locally for this session.</p>
+            <input
+                type="password"
+                id="tokenInput"
+                placeholder="GitHub PAT ..."
+                autofocus
+            />
+            <button id="btnGenerateUrl">Generate Encrypted URL</button>
+        </section>
 
-    <section id="actionArea" class='hidden'>
-        <h2>Enter text or upload file</h2>
-        <textarea id="textInput" rows="8" placeholder="Enter your text here ..."></textarea>
-        
-        <div id="uploadArea" class="upload-container">
-            <p>Drag and drop a file here or click the button to upload</p>
-            <input type="file" id="fileInput" class="hidden" />
-            <button id="uploadBtn">Select File</button>
-            <p id="fileName" class="file-name"></p>
+        <section id="actionArea" class="hidden">
+            <h2>Enter text or upload file</h2>
+            <textarea
+                id="textInput"
+                rows="8"
+                placeholder="Enter your text here ..."
+            ></textarea>
 
+            <div id="uploadArea" class="upload-container">
+                <p>Drag and drop a file here or click the button to upload</p>
+                <input type="file" id="fileInput" class="hidden" />
+                <button id="uploadBtn">Select File</button>
+                <p id="fileName" class="file-name"></p>
+            </div>
+
+            <button id="btnUploadContent" disabled>Upload to GitHub</button>
+            <p id="uploadStatus" class="hidden"></p>
+        </section>
+
+        <!-- PIN Overlay -->
+        <div id="pin" class="overlay" style="display: none">
+            <div class="modal">
+                <h3>Enter PIN</h3>
+                <input
+                    id="pinInput"
+                    type="password"
+                    placeholder="PIN/Passphrase"
+                />
+                <div id="pinErr" class="error" style="display: none"></div>
+                <div class="button-row">
+                    <button id="pinOk">Unlock</button>
+                    <button id="pinCancel">Cancel</button>
+                </div>
+            </div>
         </div>
 
-        <button id="btnUploadContent" disabled>Upload to GitHub</button>
-        <p id="uploadStatus" class="hidden"></p>
+        <!-- URL Generator Overlay -->
+        <div id="generatorOverlay" class="overlay" style="display: none">
+            <div class="modal">
+                <div id="genInput">
+                    <h3>Generate Encrypted URL</h3>
+                    <p>
+                        Create a shareable URL with your GitHub token encrypted
+                        using a PIN:
+                    </p>
+                    <input
+                        id="genPat"
+                        type="password"
+                        placeholder="GitHub PAT"
+                    />
+                    <input
+                        id="genPin"
+                        type="password"
+                        placeholder="PIN/Passphrase"
+                    />
+                    <button id="genDo">Generate URL</button>
+                </div>
+                <div id="genOut" style="display: none">
+                    <h3>Encrypted URL Generated</h3>
+                    <input id="genOutText" type="text" readonly />
+                    <div class="button-row">
+                        <button id="genCopy">Copy URL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </section>
-
-    
-
-
-    <script src="script.js"></script>
-
-</body>
-
+        <script src="script.js"></script>
+    </body>
 </html>
