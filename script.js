@@ -313,7 +313,6 @@ async function handlePinUnlock() {
     
     hidePinDialog();
     swapActionArea();
-    setStatus('Token unlocked successfully', 'success');
   } catch (error) {
     showPinError('Wrong PIN or corrupted data');
   }
